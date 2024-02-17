@@ -30,16 +30,12 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
     public T get(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException();
-        }
+        validateIndex(index);
         return search(index).data;
     }
 
     public void remove(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException();
-        }
+        validateIndex(index);
 
         if (index == 0) {
             headNode = headNode.next;
@@ -65,8 +61,10 @@ public class MyLinkedList<T> implements Iterable<T> {
         return new MyLinkedListIterator<T>(headNode);
     }
 
-    public int size() {
-        return size;
+    private void validateIndex(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
     }
 
     private ListNode<T> search(int index) {
