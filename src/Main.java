@@ -10,15 +10,13 @@ public class Main {
         myLinkedList.add(4);
         myLinkedList.add(5);
 
-        myLinkedList.remove(0);
+        myLinkedList.remove(3);
 
-        System.out.print("ADD TO MY LINKED LIST: [");
-        for (int i = 0; i < myLinkedList.size(); i++) {
-            System.out.print(myLinkedList.get(i));
-            if (i < myLinkedList.size() - 1) {
-                System.out.print(", ");
-            }
+        System.out.print("MY LINKED LIST: [");
+        for (Integer i : myLinkedList) {
+            System.out.print(i);
+            System.out.print(", ");
         }
-        System.out.println("]");
+        System.out.println("\b\b]");
     }
 }
