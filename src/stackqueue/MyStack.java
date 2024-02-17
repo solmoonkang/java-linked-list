@@ -17,16 +17,12 @@ public class MyStack<T> {
     }
 
     public T pop() {
-        if (isEmpty()) {
+        if (myLinkedList.isEmpty()) {
             throw new NoSuchElementException();
         }
 
         T data = myLinkedList.get(myLinkedList.size() - 1);
         myLinkedList.remove(myLinkedList.size() - 1);
         return data;
-    }
-
-    private boolean isEmpty() {
-        return myLinkedList.size() == 0;
     }
 }
