@@ -1,12 +1,16 @@
 package linkedlist;
 
-public class ListLinkedList<T> implements ListIterator {
+import linkedlist.iterator.MyLinkedListIterator;
+
+import java.util.Iterator;
+
+public class MyLinkedList<T> implements Iterable<T> {
 
     private ListNode<T> headNode;
     private ListNode<T> tailNode;
     private int size;
 
-    public ListLinkedList() {
+    public MyLinkedList() {
         headNode = null;
         tailNode = null;
         size = 0;
@@ -56,6 +60,11 @@ public class ListLinkedList<T> implements ListIterator {
         }
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new MyLinkedListIterator<T>(headNode);
+    }
+
     public int size() {
         return size;
     }
@@ -66,15 +75,5 @@ public class ListLinkedList<T> implements ListIterator {
             N = N.next;
         }
         return N;
-    }
-
-    @Override
-    public boolean hasNext() {
-        return false;
-    }
-
-    @Override
-    public Object next() {
-        return null;
     }
 }
