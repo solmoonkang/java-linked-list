@@ -1,3 +1,5 @@
+package linkedlist;
+
 public class MyLinkedList<T> {
 
     private MyListNode<T> headNode;

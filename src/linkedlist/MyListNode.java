@@ -1,3 +1,5 @@
+package linkedlist;
+
 public class MyListNode<T> {
 
     public T data;
