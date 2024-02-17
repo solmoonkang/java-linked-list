@@ -5,11 +5,11 @@ import linkedlist.ListNode;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class MyLinkedListIterator<T> implements Iterator<T> {
+public class ListIterator<T> implements Iterator<T> {
 
     private ListNode<T> currentNode;
 
-    public MyLinkedListIterator(ListNode<T> headNode) {
+    public ListIterator(ListNode<T> headNode) {
         this.currentNode = headNode;
     }
 

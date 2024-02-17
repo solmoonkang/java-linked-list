@@ -1,6 +1,6 @@
 package linkedlist;
 
-import linkedlist.iterator.MyLinkedListIterator;
+import linkedlist.iterator.ListIterator;
 
 import java.util.Iterator;
 
@@ -58,7 +58,7 @@ public class MyLinkedList<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new MyLinkedListIterator<T>(headNode);
+        return new ListIterator<T>(headNode);
     }
 
     private void validateIndex(int index) {
