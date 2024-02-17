@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class MyLinkedList<T> {
 
     private MyListNode<T> headNode;
@@ -21,5 +23,20 @@ public class MyLinkedList<T> {
         } else {
             lastNode.next = newNode;
         }
+    }
+
+    public T get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+        return search(index).data;
+    }
+
+    private MyListNode<T> search(int index) {
+        MyListNode<T> N = headNode;
+        for (int i = 0; i < index; i++) {
+            N = N.next;
+        }
+        return N;
     }
 }
