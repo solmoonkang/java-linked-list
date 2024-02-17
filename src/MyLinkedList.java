@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 public class MyLinkedList<T> {
 
     private MyListNode<T> headNode;
@@ -30,6 +28,39 @@ public class MyLinkedList<T> {
             throw new IndexOutOfBoundsException();
         }
         return search(index).data;
+    }
+
+    public T remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        if (index == 0) {
+            T returnData = headNode.data;
+            headNode = headNode.next;
+            size--;
+            return returnData;
+        } else {
+            MyListNode<T> prevNode = search(index - 1);
+            MyListNode<T> removeNode = prevNode.next;
+            T returnData = removeNode.data;
+
+            prevNode.next = removeNode.next;
+            removeNode.data = null;
+            removeNode.next = null;
+
+            size--;
+
+            if (removeNode == tailNode) {
+                tailNode = prevNode;
+            }
+
+            return returnData;
+        }
+    }
+
+    public int size() {
+        return size;
     }
 
     private MyListNode<T> search(int index) {
