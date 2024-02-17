@@ -1,20 +1,20 @@
 package linkedlist;
 
-public class MyLinkedList<T> implements MyIterator {
+public class ListLinkedList<T> implements ListIterator {
 
-    private MyListNode<T> headNode;
-    private MyListNode<T> tailNode;
+    private ListNode<T> headNode;
+    private ListNode<T> tailNode;
     private int size;
 
-    public MyLinkedList() {
+    public ListLinkedList() {
         headNode = null;
         tailNode = null;
         size = 0;
     }
 
     public void add(T data) {
-        MyListNode<T> lastNode = tailNode;
-        MyListNode<T> newNode = new MyListNode<>(data, null);
+        ListNode<T> lastNode = tailNode;
+        ListNode<T> newNode = new ListNode<>(data, null);
         size++;
         tailNode = newNode;
 
@@ -41,8 +41,8 @@ public class MyLinkedList<T> implements MyIterator {
             headNode = headNode.next;
             size--;
         } else {
-            MyListNode<T> prevNode = search(index - 1);
-            MyListNode<T> removeNode = prevNode.next;
+            ListNode<T> prevNode = search(index - 1);
+            ListNode<T> removeNode = prevNode.next;
 
             prevNode.next = removeNode.next;
             removeNode.data = null;
@@ -60,8 +60,8 @@ public class MyLinkedList<T> implements MyIterator {
         return size;
     }
 
-    private MyListNode<T> search(int index) {
-        MyListNode<T> N = headNode;
+    private ListNode<T> search(int index) {
+        ListNode<T> N = headNode;
         for (int i = 0; i < index; i++) {
             N = N.next;
         }

@@ -1,6 +1,6 @@
 package linkedlist;
 
-public interface MyIterator<T> {
+public interface ListIterator<T> {
     boolean hasNext();
     T next();
 }
