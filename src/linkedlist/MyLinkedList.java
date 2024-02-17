@@ -56,8 +56,12 @@ public class MyLinkedList<T> implements Iterable<T> {
         }
     }
 
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     public int size() {
-        return this.size;
+        return size;
     }
 
     @Override
