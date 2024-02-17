@@ -1,6 +1,6 @@
 package linkedlist;
 
-public class MyLinkedList<T> {
+public class MyLinkedList<T> implements MyIterator {
 
     private MyListNode<T> headNode;
     private MyListNode<T> tailNode;
@@ -32,20 +32,17 @@ public class MyLinkedList<T> {
         return search(index).data;
     }
 
-    public T remove(int index) {
+    public void remove(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
 
         if (index == 0) {
-            T returnData = headNode.data;
             headNode = headNode.next;
             size--;
-            return returnData;
         } else {
             MyListNode<T> prevNode = search(index - 1);
             MyListNode<T> removeNode = prevNode.next;
-            T returnData = removeNode.data;
 
             prevNode.next = removeNode.next;
             removeNode.data = null;
@@ -56,8 +53,6 @@ public class MyLinkedList<T> {
             if (removeNode == tailNode) {
                 tailNode = prevNode;
             }
-
-            return returnData;
         }
     }
 
@@ -71,5 +66,15 @@ public class MyLinkedList<T> {
             N = N.next;
         }
         return N;
+    }
+
+    @Override
+    public boolean hasNext() {
+        return false;
+    }
+
+    @Override
+    public Object next() {
+        return null;
     }
 }
