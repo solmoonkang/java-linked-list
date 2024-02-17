@@ -56,6 +56,10 @@ public class MyLinkedList<T> implements Iterable<T> {
         }
     }
 
+    public int size() {
+        return this.size;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new ListIterator<T>(headNode);
