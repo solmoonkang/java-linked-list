@@ -10,16 +10,16 @@ public class MyLinkedList<T> {
         size = 0;
     }
 
-    public void addFirst(T value) {
-        MyListNode<T> firstNode = headNode;
-        MyListNode<T> newNode = new MyListNode<>(value, firstNode);
-
+    public void add(T data) {
+        MyListNode<T> lastNode = tailNode;
+        MyListNode<T> newNode = new MyListNode<>(data, null);
         size++;
+        tailNode = newNode;
 
-        headNode = newNode;
-
-        if (firstNode == null) {
-            tailNode = newNode;
+        if (lastNode == null) {
+            headNode = newNode;
+        } else {
+            lastNode.next = newNode;
         }
     }
 }
